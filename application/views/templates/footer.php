@@ -23,6 +23,11 @@
                     $('#dataTables-example').DataTable({
                         responsive: true
                     });
+
+                    $('.tampilModalUbah').on('click', function() {
+                        const id = $(this).data('id');
+                        $('#id_lam').val(id);
+                    });
                 });
             </script>
 
