@@ -3,11 +3,12 @@
     <ul class="nav" id="side-menu">
       <li class="sidebar-search">
         <div class="input-group custom-search-form">
-          <input type="text" class="form-control" placeholder="Search...">
+          <!--<input type="text" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
-            <button class="btn btn-primary" type="button">
+             <button class="btn btn-primary" type="button">
               <i class="fa fa-search"></i>
-            </button>
+            </button> -->
+            <?= $this->session->userdata('nama') ?>
           </span>
         </div>
         <!-- /input-group -->
@@ -54,13 +55,13 @@
           <li>
             <a href="<?= base_url('laporan/pegawai') ?>">pegawai</a>
           </li>
-        
-           
-     
+
+
+
         </ul>
         <!-- /.nav-second-level -->
       </li>
-      
+
     </ul>
   </div>
   <!-- /.sidebar-collapse -->

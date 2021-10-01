@@ -2,87 +2,81 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <title>SIA TOKO NORKAYATI</title>
+    <title>Startmin - Bootstrap Admin Theme</title>
 
-    <!-- Bootstrap -->
-    <link href="<?= base_url('assets/'); ?>vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="<?= base_url('assets/'); ?>vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="<?= base_url('assets/'); ?>vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="<?= base_url('assets/'); ?>vendors/animate.css/animate.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="<?= base_url('assets'); ?>/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="<?= base_url('assets/'); ?>build/css/custom.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="<?= base_url('assets'); ?>/css/metisMenu.min.css" rel="stylesheet">
 
-    <style>
-        .login {
-            background-image: url("<?= base_url('assets/'); ?>gambar_pkl/login.jpeg");
-            /* Full height */
-            height: 650px;
+    <!-- Custom CSS -->
+    <link href="<?= base_url('assets'); ?>/css/startmin.css" rel="stylesheet">
 
+    <!-- Custom Fonts -->
+    <link href="<?= base_url('assets'); ?>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 </head>
 
-<body class="login">
-    <div>
-        <a class="hiddenanchor" id="signup"></a>
-        <a class="hiddenanchor" id="signin"></a>
+<body>
 
-        <div class="login_wrapper">
-            <div class="animate form login_form">
-                <section class="login_content">
-                    <form class="text-dark" action="<?= base_url('auth/login'); ?>" method="POST" enctype="multipart/form-data">
-                        <?= $this->session->flashdata('pesan'); ?>
-                        <h1>Login Form</h1>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Username" name="username" required="" />
-                            <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                        </div>
-                        <div>
-                            <input type="password" class="form-control" placeholder="Password" name="password" required="" />
-                            <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
-                        </div>
-                        <div>
-                            <button class="btn btn-primary">Log in</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" action="<?= base_url('auth/login'); ?>" method="POST" enctype="multipart/form-data">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Username" name="username" type="text" required>
+                                    <small><?= $this->session->flashdata('pesan'); ?></small>
 
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                        <div class="separator">
-
-
-                            <div class="clearfix"></div>
-                            <br />
-
-                            <div>
-                                <h1>
-                                    <p> SIA PERUSAHAAN DAGANG TOKO NORKAYATI </p>
-                                </h1>
-
-                            </div>
-                        </div>
-                    </form>
-                </section>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" required>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-
         </div>
     </div>
+
+    <!-- jQuery -->
+    <script src="<?= base_url('assets'); ?>/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?= base_url('assets'); ?>/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="<?= base_url('assets'); ?>/js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="<?= base_url('assets'); ?>/js/startmin.js"></script>
+
 </body>
 
 </html>
