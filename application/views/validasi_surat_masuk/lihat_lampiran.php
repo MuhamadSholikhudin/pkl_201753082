@@ -4,12 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Lampiran Surat Masuk</h1>
-                <?php if ($this->session->userdata('hakakses') == 'Admin TU') { ?>
-                    
-                    <a href="<?= base_url('surat_masuk/lampiran/') . $lampiran->id_suratmasuk ?>" class="btn btn-primary">Kembali</a>
-                    <?php } elseif($this->session->userdata('hakakses') == 'Admin Kepala') { ?>
-                        <a href="<?= base_url('validasi_surat_masuk/lampiran/') . $lampiran->id_suratmasuk ?>" class="btn btn-primary">Kembali</a>
-                <?php } ?>
+                <a href="<?= base_url('validasi_surat_masuk/lampiran/') . $lampiran->id_suratmasuk ?>" class="btn btn-primary">Kembali</a>
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-12">

@@ -19,12 +19,11 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Nama Pegawai :</label>
-                                        <input class="form-control" type="text" name="nama">
-                                        <p class="help-block">Example block-level help text here.</p>
+                                        <input class="form-control" type="text" name="nama" required>
                                     </div>
                                     <div class="form-group">
                                         <label> Nip :</label>
-                                        <input class="form-control" type="text" name="nip" placeholder="Enter text">
+                                        <input class="form-control" type="text" name="nip" required>
                                     </div>
 
                                     <div class="form-group">
@@ -33,19 +32,18 @@
                                     </div>
                                     <div class="form-group">
                                         <label> Username :</label>
-                                        <input class="form-control" type="text" name="username" placeholder="Enter text">
+                                        <input class="form-control" type="text" name="username" required>
                                     </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Jabatan :</label>
-                                        <input class="form-control" type="text" name="jabatan">
-                                        <p class="help-block">Example block-level help text here.</p>
+                                        <input class="form-control" type="text" name="jabatan" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Hak Akses :</label>
-                                        <select class="form-control" name="hakakses">
+                                        <select class="form-control" name="hakakses" required>
                                             <option value="Admin Kepala">Admin Kepala</option>
                                             <option value="Admin TU">Admin TU</option>
                                             <option value="Admin Bidang">Admin Bidang</option>
@@ -57,8 +55,7 @@
 
                                     <div class="form-group">
                                         <label>Password :</label>
-                                        <input class="form-control" type="text" name="password">
-                                        <p class="help-block">Example block-level help text here.</p>
+                                        <input class="form-control" type="text" name="password" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                     <a href="<?= base_url('pegawai') ?>" class="btn btn-danger ">Batal</a>

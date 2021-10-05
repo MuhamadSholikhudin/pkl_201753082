@@ -3,18 +3,18 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Lampiran Surat Masuk</h1>
+                <h1 class="page-header">Lampiran Surat keluar</h1>
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-12">
                         <p>
-                            <!-- <button href="<?= base_url('surat_masuk/tambah_lampiran') ?>" class="btn btn-primary " >+ Lampiran Surat Masuk</button> -->
+                            <!-- <button href="<?= base_url('surat_keluar/tambah_lampiran') ?>" class="btn btn-primary " >+ Lampiran Surat keluar</button> -->
                             
                             <?php if ($this->session->userdata('hakakses') == 'Admin TU') { ?>
                             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                                + Lampiran Surat Masuk
+                                + Lampiran Surat keluar
                             </button>
                             <?php }else{
 
@@ -27,13 +27,13 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             <h4 class="modal-title" id="myModalLabel">Form Tambah Lampiran</h4>
                                         </div>
-                                        <form role="form" action="<?= base_url('surat_masuk/aksi_tambah_lampiran') ?>" method="post" enctype="multipart/form-data">
+                                        <form role="form" action="<?= base_url('surat_keluar/aksi_tambah_lampiran') ?>" method="post" enctype="multipart/form-data">
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="form-group">
                                                             <label>Nama Lampiran :</label>
-                                                            <input class="form-control" type="hidden" name="id_suratmasuk" value="<?= $surat_masuk->id_suratmasuk ?>" required>
+                                                            <input class="form-control" type="hidden" name="id_suratkeluar" value="<?= $surat_keluar->id_suratkeluar ?>" required>
                                                             <input class="form-control" type="text" name="nama_lampiran" placeholder="Nama Lampiran" required>
                                                         </div>
 
@@ -61,7 +61,7 @@
 
 
                             <div class="panel-heading">
-                                Data Lampiran Surat Masuk
+                                Data Lampiran Surat keluar
                             </div>
 
                             <!-- /.panel-heading -->
@@ -93,9 +93,9 @@
 
                                                                 <td class="center">
 
-                                                                    <a href="<?= base_url('surat_masuk/file_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-default"><i class="fa fa-file-pdf-o fa-fw"></i>Lihat</a>
+                                                                    <a href="<?= base_url('surat_keluar/file_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-default"><i class="fa fa-file-pdf-o fa-fw"></i>Lihat</a>
                                                                     <?php if ($this->session->userdata('hakakses') == 'Admin TU') { ?>
-                                                                        <a href="<?= base_url('surat_masuk/edit_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-warning tampilModalUbah" data-toggle="modal" data-target="#ubahModal" data-id="<?= $lamp->id_lampiran; ?>"><i class="fa fa-edit fa-fw"></i>Edit</a>
+                                                                        <a href="<?= base_url('surat_keluar/edit_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-warning tampilModalUbah" data-toggle="modal" data-target="#ubahModal" data-id="<?= $lamp->id_lampiran; ?>"><i class="fa fa-edit fa-fw"></i>Edit</a>
                                                                         <div class="modal fade" id="ubahModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
                                                                             <div class="modal-dialog" role="document">
@@ -104,7 +104,7 @@
                                                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                                                                         <h4 class="modal-title" id="myModalLabel">Form Tambah Lampiran</h4>
                                                                                     </div>
-                                                                                    <form role="form" action="<?= base_url('surat_masuk/aksi_edit_lampiran') ?>" method="post" enctype="multipart/form-data">
+                                                                                    <form role="form" action="<?= base_url('surat_keluar/aksi_edit_lampiran') ?>" method="post" enctype="multipart/form-data">
                                                                                         <div class="modal-body">
                                                                                             <div class="row">
                                                                                                 <div class="col-lg-12">
@@ -112,7 +112,7 @@
                                                                                                         <label>Nama Lampiran :</label>
                                                                                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                                                         <input class="form-control" type="hidden" id="id_lam" name="id_lampiran" required>
-                                                                                                        <input class="form-control" type="hidden" name="id_suratmasuk" value="<?= $surat_masuk->id_suratmasuk ?>" required>
+                                                                                                        <input class="form-control" type="hidden" name="id_suratkeluar" value="<?= $surat_keluar->id_suratkeluar ?>" required>
                                                                                                         <input class="form-control" type="text" name="nama_lampiran" placeholder="Nama Lampiran" width="" required>
                                                                                                     </div>
                                                                                                     <p></p>
@@ -135,7 +135,7 @@
                                                                             </div>
                                                                             <!-- /.modal-dialog -->
                                                                         </div>
-                                                                        <a href="<?= base_url('surat_masuk/hapus_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-danger"><i class="fa fa-trash fa-fw"></i>Hapus</a>
+                                                                        <a href="<?= base_url('surat_keluar/hapus_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-danger"><i class="fa fa-trash fa-fw"></i>Hapus</a>
 
                                                                     <?php } else { ?>
 

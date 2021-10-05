@@ -14,25 +14,16 @@
                                 <a href="<?= base_url('surat_masuk/tambah') ?>" class="btn btn-primary ">+ Surat Masuk</a>
 
                             <?php } elseif ($this->session->userdata('hakakses') == 'Admin Kepala') { ?>
-                            
-                                <?php } ?>
 
-                        </p>
+                            <?php } ?> </p>
                         <div class="panel panel-default mt-3">
                             <div class="panel-heading">
                                 Data Surat Masuk
                             </div>
-
-
-
-
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-
-
                                 <div class="table-responsive">
                                     <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info">
@@ -61,30 +52,13 @@
                                                                 <td><?= $masuk->klasifikasi_surat ?></td>
                                                                 <td><?= $masuk->perihal ?></td>
                                                                 <td class="center"><?= $masuk->tanggal_surat ?></td>
-                                                                <td class="center">
-                                                                    <?php if ($masuk->status == 0) {
-                                                                        echo 'Surat baru';
-                                                                    } elseif ($masuk->status == 1) {
-                                                                        echo 'Surat Terkirim Kepala Pelaksana';
-                                                                    } elseif ($masuk->status == 2) {
-                                                                        echo 'Surat sudah di baca';
-                                                                    } elseif ($masuk->status == 3) {
-                                                                        echo 'Surat tidak di validasi kepala pelaksana';
-                                                                    } elseif ($masuk->status == 4) {
-                                                                        echo 'Surat di validasi oleh kepala pelaksana';
-                                                                    } elseif ($masuk->status == 5) {
-                                                                        echo 'Surat sudah ke instansi terkait';
-                                                                    } else {
-                                                                        echo 'Surat informasi';
-                                                                    } ?>
-
-                                                                </td>
+                                                                <td class="center"><?= $masuk->status ?></td>
                                                                 <td class="center">
 
-                                                                    <a href="<?= base_url('surat_masuk/kirim/') . $masuk->id_suratmasuk ?>" type="button" class="btn btn-info"><i class="fa  fa-location-arrow fa-fw"></i> Kirim</a>
-                                                                    <a href="<?= base_url('surat_masuk/lampiran/') . $masuk->id_suratmasuk ?>" type="button" class="btn btn-default"><i class="fa fa-file-pdf-o fa-fw"></i>Lampiran</a>
-                                                                    <a href="<?= base_url('surat_masuk/edit/') . $masuk->id_suratmasuk ?>" type="button" class="btn btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
-                                                                    <a href="<?= base_url('surat_masuk/hapus/') . $masuk->id_suratmasuk ?>" type="button" class="btn btn-danger"><i class="fa fa-trash fa-fw"></i>Hapus</a>
+                                                                    <a href="<?= base_url('validasi_surat_masuk/lihat/') . $masuk->id_suratmasuk ?>" type="button" class="btn btn-success"><i class="fa fa-eye fa-fw"></i> Lihat</a>
+                                                                    <a href="<?= base_url('validasi_surat_masuk/lampiran/') . $masuk->id_suratmasuk ?>" type="button" class="btn btn-default"><i class="fa fa-file-pdf-o fa-fw"></i>Lampiran</a>
+                                                                    <!-- <a href="<?= base_url('validasi_surat_masuk/edit/') . $masuk->id_suratmasuk ?>" type="button" class="btn btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a> -->
+                                                                    <!-- <a href="<?= base_url('validasi_surat_masuk/hapus/') . $masuk->id_suratmasuk ?>" type="button" class="btn btn-danger"><i class="fa fa-trash fa-fw"></i>Hapus</a> -->
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach ?>

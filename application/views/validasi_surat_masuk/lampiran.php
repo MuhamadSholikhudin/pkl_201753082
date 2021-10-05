@@ -11,14 +11,9 @@
                     <div class="col-lg-12">
                         <p>
                             <!-- <button href="<?= base_url('surat_masuk/tambah_lampiran') ?>" class="btn btn-primary " >+ Lampiran Surat Masuk</button> -->
-                            
-                            <?php if ($this->session->userdata('hakakses') == 'Admin TU') { ?>
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                            <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                                 + Lampiran Surat Masuk
-                            </button>
-                            <?php }else{
-
-                            } ?>
+                            </button> -->
                             <!-- Modal -->
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -56,6 +51,17 @@
                                 </div>
                                 <!-- /.modal-dialog -->
                             </div>
+
+
+                            <?php if ($this->session->userdata('hakakses') == 'Admin TU') { ?>
+                                <a href="<?= base_url('surat_masuk/') ?>" class="btn btn-primary ">Kembali</a>
+
+                            <?php } elseif ($this->session->userdata('hakakses') == 'Admin Kepala') { ?>
+                                <a href="<?= base_url('validasi_surat_masuk/') ?>" class="btn btn-primary ">Kembali</a>
+
+                            <?php } ?>
+                            
+                        </p>
                         </p>
                         <div class="panel panel-default mt-3">
 
@@ -94,52 +100,48 @@
                                                                 <td class="center">
 
                                                                     <a href="<?= base_url('surat_masuk/file_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-default"><i class="fa fa-file-pdf-o fa-fw"></i>Lihat</a>
-                                                                    <?php if ($this->session->userdata('hakakses') == 'Admin TU') { ?>
-                                                                        <a href="<?= base_url('surat_masuk/edit_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-warning tampilModalUbah" data-toggle="modal" data-target="#ubahModal" data-id="<?= $lamp->id_lampiran; ?>"><i class="fa fa-edit fa-fw"></i>Edit</a>
-                                                                        <div class="modal fade" id="ubahModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                    <a href="<?= base_url('surat_masuk/edit_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-warning tampilModalUbah" data-toggle="modal" data-target="#ubahModal" data-id="<?= $lamp->id_lampiran; ?>"><i class="fa fa-edit fa-fw"></i>Edit</a>
+                                                                    <div class="modal fade" id="ubahModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
-                                                                            <div class="modal-dialog" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                                                        <h4 class="modal-title" id="myModalLabel">Form Tambah Lampiran</h4>
-                                                                                    </div>
-                                                                                    <form role="form" action="<?= base_url('surat_masuk/aksi_edit_lampiran') ?>" method="post" enctype="multipart/form-data">
-                                                                                        <div class="modal-body">
-                                                                                            <div class="row">
-                                                                                                <div class="col-lg-12">
-                                                                                                    <div class="form-group">
-                                                                                                        <label>Nama Lampiran :</label>
-                                                                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                        <input class="form-control" type="hidden" id="id_lam" name="id_lampiran" required>
-                                                                                                        <input class="form-control" type="hidden" name="id_suratmasuk" value="<?= $surat_masuk->id_suratmasuk ?>" required>
-                                                                                                        <input class="form-control" type="text" name="nama_lampiran" placeholder="Nama Lampiran" width="" required>
-                                                                                                    </div>
-                                                                                                    <p></p>
-                                                                                                    <div class="form-group">
-                                                                                                        <label>File input Lampiran :</label>
-                                                                                                        <input class="form-control" type="file" name="file_lampiran" required>
-                                                                                                    </div>
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                                    <h4 class="modal-title" id="myModalLabel">Form Tambah Lampiran</h4>
+                                                                                </div>
+                                                                                <form role="form" action="<?= base_url('surat_masuk/aksi_edit_lampiran') ?>" method="post" enctype="multipart/form-data">
+                                                                                    <div class="modal-body">
+                                                                                        <div class="row">
+                                                                                            <div class="col-lg-12">
+                                                                                                <div class="form-group">
+                                                                                                    <label>Nama Lampiran :</label>
+                                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                    <input class="form-control" type="hidden" id="id_lam" name="id_lampiran" required>
+                                                                                                    <input class="form-control" type="hidden" name="id_suratmasuk" value="<?= $surat_masuk->id_suratmasuk ?>" required>
+                                                                                                    <input class="form-control" type="text" name="nama_lampiran" placeholder="Nama Lampiran" width="" required>
+                                                                                                </div>
+                                                                                                <p></p>
+                                                                                                <div class="form-group">
+                                                                                                    <label>File input Lampiran :</label>
+                                                                                                    <input class="form-control" type="file" name="file_lampiran" required>
                                                                                                 </div>
                                                                                             </div>
+                                                                                        </div>
 
 
-                                                                                        </div>
-                                                                                        <div class="modal-footer">
-                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                                                                                            <button type="submit" class="btn btn-primary">Simpan</button>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>
-                                                                                <!-- /.modal-content -->
+                                                                                    </div>
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                                                                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                                                                    </div>
+                                                                                </form>
                                                                             </div>
-                                                                            <!-- /.modal-dialog -->
+                                                                            <!-- /.modal-content -->
                                                                         </div>
-                                                                        <a href="<?= base_url('surat_masuk/hapus_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-danger"><i class="fa fa-trash fa-fw"></i>Hapus</a>
+                                                                        <!-- /.modal-dialog -->
+                                                                    </div>
 
-                                                                    <?php } else { ?>
-
-                                                                    <?php } ?>
+                                                                    <a href="<?= base_url('surat_masuk/hapus_lampiran/') . $lamp->id_lampiran ?>" type="button" class="btn btn-danger"><i class="fa fa-trash fa-fw"></i>Hapus</a>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach ?>

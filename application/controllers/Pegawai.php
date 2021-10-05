@@ -3,6 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pegawai extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->session->userdata('hakakses') != "Admin TU") {
+            $this->session->set_flashdata('pesan', "<script> alert('Username atau Password yang anda masukkan salah')</script>");
+            $this->session->sess_destroy();
+            redirect('auth/login');
+        }
+    }
     public function index()
     {
         // echo 'pegawai';

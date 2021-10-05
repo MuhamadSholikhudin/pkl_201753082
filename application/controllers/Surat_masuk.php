@@ -3,6 +3,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class surat_masuk extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->session->userdata('hakakses') != "Admin TU") {
+            $this->session->set_flashdata('pesan', "<script> alert('Username atau Password yang anda masukkan salah')</script>");
+            $this->session->sess_destroy();
+            redirect('auth/login');
+        }
+    }
 
     public function index()
     {
@@ -200,5 +210,25 @@ class surat_masuk extends CI_Controller
 
         $this->Model_lampiran->update_data($where, $data, 'lampiran');
         redirect('surat_masuk/lampiran/'. $id_suratmasuk );
+    }
+
+
+    public function kirim($id_suratmasuk){
+        $cari_surat = $this->db->query("SELECT * FROM surat_masuk WHERE id_suratmasuk = $id_suratmasuk")->row();
+
+        $data = [
+           
+            // 'status' => $cari_surat->status
+            'status' => 1
+        ];
+
+        $where = [
+            'id_suratmasuk' => $id_suratmasuk
+        ];
+
+        $this->Model_surat_masuk->update_data($where, $data, 'surat_masuk');
+        redirect('surat_masuk/');
+
+
     }
 }

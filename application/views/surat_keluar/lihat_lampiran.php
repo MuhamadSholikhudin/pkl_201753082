@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Lampiran Surat Masuk</h1>
+                <h1 class="page-header">Lampiran Surat keluar</h1>
                 <?php if ($this->session->userdata('hakakses') == 'Admin TU') { ?>
                     
-                    <a href="<?= base_url('surat_masuk/lampiran/') . $lampiran->id_suratmasuk ?>" class="btn btn-primary">Kembali</a>
+                    <a href="<?= base_url('surat_keluar/lampiran/') . $lampiran->id_suratkeluar ?>" class="btn btn-primary">Kembali</a>
                     <?php } elseif($this->session->userdata('hakakses') == 'Admin Kepala') { ?>
-                        <a href="<?= base_url('validasi_surat_masuk/lampiran/') . $lampiran->id_suratmasuk ?>" class="btn btn-primary">Kembali</a>
+                        <a href="<?= base_url('validasi_surat_keluar/lampiran/') . $lampiran->id_suratkeluar ?>" class="btn btn-primary">Kembali</a>
                 <?php } ?>
             </div>
             <!-- /.col-lg-12 -->
@@ -22,7 +22,7 @@
 
 
                             <div class="panel-heading">
-                                Data Lampiran Surat Masuk
+                                Data Lampiran Surat keluar
                             </div>
 
                             <!-- /.panel-heading -->

@@ -3,19 +3,19 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Tambah Surat keluar</h1>
+                <h1 class="page-header">Tambah Surat Masuk</h1>
             </div>
             <!-- /.col-lg-12 -->
             <div class="col-lg-12">
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Form Tambah Surat keluar
+                        Form Tambah Surat masuk
                     </div>
 
                     <div class="panel-body">
                         <div class="row">
-                            <form role="form" action="<?= base_url('surat_keluar/aksi_tambah') ?>" method="POST" enctype="multipart/form-data">
+                            <form role="form" action="<?= base_url('surat_masuk/aksi_tambah') ?>" method="POST" enctype="multipart/form-data">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Dari :</label>
@@ -28,7 +28,7 @@
 
                                     <div class="form-group">
                                         <label>No Urut:</label>
-                                        <input class="form-control" type="text" name="no_urut" placeholder="Nomer Urut Surat keluar" required>
+                                        <input class="form-control" type="text" name="no_urut" placeholder="Nomer Urut Surat Masuk" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Tanggal Surat:</label>
@@ -65,8 +65,8 @@
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label>No Surat keluar :</label>
-                                        <input class="form-control" type="text" name="no_suratkeluar" required placeholder="Nomer Surat keluar">
+                                        <label>No Surat Masuk :</label>
+                                        <input class="form-control" type="text" name="no_suratmasuk" required placeholder="Nomer Surat masuk">
                                     </div>
                                     <div class="form-group">
                                         <label>Index :</label>
@@ -87,7 +87,7 @@
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">Simpan</button>
-                                    <a href="<?= base_url('surat_keluar') ?>" class="btn btn-danger ">Batal</a>
+                                    <a href="<?= base_url('surat_masuk') ?>" class="btn btn-danger ">Batal</a>
                                     <button type="reset" class="btn btn-default">Reset </button>
                             </form>
                         </div>

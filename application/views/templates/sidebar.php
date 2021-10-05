@@ -8,7 +8,7 @@
              <button class="btn btn-primary" type="button">
               <i class="fa fa-search"></i>
             </button> -->
-            <?= $this->session->userdata('nama') ?>
+          <?= $this->session->userdata('hakakses') ?>
           </span>
         </div>
         <!-- /input-group -->
@@ -28,41 +28,71 @@
         </ul>
       </li> -->
       <!-- /.nav-second-level -->
-      <li>
-        <a href="<?= base_url('klasifikasi') ?>"><i class="fa fa-list fa-fw"></i> Klasifikasi</a>
-      </li>
-      <li>
-        <a href="<?= base_url('surat_masuk') ?>"><i class="fa  fa-envelope fa-fw"></i> Surat Masuk</a>
-      </li>
-      <li>
-        <a href="<?= base_url('surat_keluar') ?>"><i class="fa  fa-envelope-o fa-fw"></i> Surat Keluar</a>
-      </li>
-      <li>
-        <a href="<?= base_url('instansi') ?>"><i class="fa fa-institution fa-fw"></i> Instansi</a>
-      </li>
-      <li>
-        <a href="<?= base_url('pegawai') ?>"><i class="fa fa-user fa-fw"></i> Pegawai</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-book fa-fw"></i>Laporan<span class="fa arrow"></span></a>
-        <ul class="nav nav-second-level">
-          <li>
-            <a href="<?= base_url('laporan/surat_masuk') ?>">Surat Masuk</a>
-          </li>
-          <li>
-            <a href="<?= base_url('laporan/surat_masuk') ?>">Surat Keluar</a>
-          </li>
-          <li>
-            <a href="<?= base_url('laporan/pegawai') ?>">pegawai</a>
-          </li>
+
+      <?php if ($this->session->userdata('hakakses') == "Admin Kepala") { ?>
+        <li>
+          <a href="<?= base_url('validasi_surat_masuk') ?>"><i class="fa  fa-envelope fa-fw"></i> Validasi Surat Masuk</a>
+        </li>
+        <li>
+          <a href="<?= base_url('surat_keluar') ?>"><i class="fa  fa-envelope-o fa-fw"></i> Surat Keluar</a>
+        </li>
+ 
+        <li>
+          <a href="#"><i class="fa fa-book fa-fw"></i>Laporan<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li>
+              <a href="<?= base_url('laporan/surat_masuk') ?>">Surat Masuk</a>
+            </li>
+            <li>
+              <a href="<?= base_url('laporan/surat_masuk') ?>">Surat Keluar</a>
+            </li>
+            <li>
+              <a href="<?= base_url('laporan/pegawai') ?>">pegawai</a>
+            </li>
+
+          <?php } elseif ($this->session->userdata('hakakses') == "Admin TU") { ?>
+
+            <li>
+              <a href="<?= base_url('klasifikasi') ?>"><i class="fa fa-list fa-fw"></i> Klasifikasi</a>
+            </li>
+            <li>
+              <a href="<?= base_url('surat_masuk') ?>"><i class="fa  fa-envelope fa-fw"></i> Surat Masuk</a>
+            </li>
+            <li>
+              <a href="<?= base_url('surat_keluar') ?>"><i class="fa  fa-envelope-o fa-fw"></i> Surat Keluar</a>
+            </li>
+            <li>
+              <a href="<?= base_url('instansi') ?>"><i class="fa fa-institution fa-fw"></i> Instansi</a>
+            </li>
+            <li>
+              <a href="<?= base_url('pegawai') ?>"><i class="fa fa-user fa-fw"></i> Pegawai</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-book fa-fw"></i>Laporan<span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                <li>
+                  <a href="<?= base_url('laporan/surat_masuk') ?>">Surat Masuk</a>
+                </li>
+                <li>
+                  <a href="<?= base_url('laporan/surat_masuk') ?>">Surat Keluar</a>
+                </li>
+                <li>
+                  <a href="<?= base_url('laporan/pegawai') ?>">pegawai</a>
+                </li>
+
+              <?php } elseif ($this->session->userdata('hakakses') == "Admin Bidang") { ?>
+
+              <?php } else { ?>
+
+              <?php }   ?>
 
 
 
-        </ul>
-        <!-- /.nav-second-level -->
-      </li>
+              </ul>
+              <!-- /.nav-second-level -->
+            </li>
 
-    </ul>
+          </ul>
   </div>
   <!-- /.sidebar-collapse -->
 </div>

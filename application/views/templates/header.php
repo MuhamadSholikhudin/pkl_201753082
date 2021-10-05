@@ -56,26 +56,37 @@
 
       <ul class="nav navbar-right navbar-top-links">
         <li class="dropdown navbar-inverse">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+          <a class="dropdown-toggle " data-toggle="dropdown" href="#">
+            <i class="fa fa-bell fa-fw"></i><span class="text-white">
+            
+            <?php
+            $hitung_masuk = $this->db->query("SELECT COUNT(id_suratmasuk) as surat FROM surat_masuk WHERE status = 1")->row();
+            
+            if ($hitung_masuk->surat > 0) {
+              echo $hitung_masuk->surat;
+            } else {
+            }
+            ?>
+
+            </span>
+            <b class="caret"></b>
           </a>
           <ul class="dropdown-menu dropdown-alerts">
-            <li>
-              <a href="#">
-                <div>
-                  <i class="fa fa-comment fa-fw"></i> New Comment
-                  <span class="pull-right text-muted small">4 minutes ago</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div>
-                  <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                  <span class="pull-right text-muted small">12 minutes ago</span>
-                </div>
-              </a>
-            </li>
+            <?php foreach ($surat_kirim as $kir) : ?>
+              <li>
+                <a href="<?= base_url('validasi_surat_masuk/lihat/'. $kir->id_suratmasuk) ?>">
+                  <div>
+                    <i class="fa fa-envelope-open fa-fw"></i>
+                    <?php
+                    $cari_instansi = $this->db->query("SELECT * FROM instansi WHERE id_instansi = $kir->id_instansi ")->row();
+
+                    echo $cari_instansi->nama_instansi
+                    ?>
+                    <span class="pull-right text-muted small">12 minutes ago</span>
+                  </div>
+                </a>
+              </li>
+            <?php endforeach ?>
             <li>
               <a href="#">
                 <div>
@@ -84,44 +95,38 @@
                 </div>
               </a>
             </li>
-            <li>
-              <a href="#">
-                <div>
-                  <i class="fa fa-tasks fa-fw"></i> New Task
-                  <span class="pull-right text-muted small">4 minutes ago</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div>
-                  <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                  <span class="pull-right text-muted small">4 minutes ago</span>
-                </div>
-              </a>
-            </li>
-            <li class="divider"></li>
+
+            <!-- <li class="divider"></li>
             <li>
               <a class="text-center" href="#">
                 <strong>See All Alerts</strong>
                 <i class="fa fa-angle-right"></i>
               </a>
-            </li>
+            </li> -->
           </ul>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
+            <i class="fa fa-user fa-fw"></i> <?= $this->session->userdata('nama') ?> <b class="caret"></b>
           </a>
           <ul class="dropdown-menu dropdown-user">
+            <li>
+
+              <?php
+              $id_peg =  $this->session->userdata('id_pegawai');
+
+              $cari_foto = $this->db->query("SELECT * FROM pegawai WHERE id_pegawai = $id_peg ")->row();
+              ?>
+              <img src="<?= base_url('uploads/') . $cari_foto->foto ?>" width="100%" height="150px" alt="" srcset="">
+            </li>
             <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
             </li>
-            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-            </li>
-            <li class="divider"></li>
-            <li><a href="<?= base_url('auth/logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-            </li>
-          </ul>
+            <!-- <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a> -->
         </li>
+        <li class="divider"></li>
+        <li><a href="<?= base_url('auth/logout') ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        </li>
+      </ul>
+      </li>
       </ul>
       <!-- /.navbar-top-links -->
